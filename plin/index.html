@@ -1,1 +1,1037 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plin — Conversational Banking | Product Design</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #f7f7f4;
+      --text: #171717;
+      --muted: #777772;
+      --green: #b9f36b;
+      --dark: #14251b;
+      --line: #deded8;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, 88%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 90px 0 70px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(48px, 8vw, 105px);
+      line-height: 0.98;
+      letter-spacing: -6px;
+      max-width: 950px;
+      font-weight: 600;
+    }
+
+    .hero h1 span {
+      color: #56892c;
+    }
+
+    .hero-description {
+      max-width: 560px;
+      font-size: 18px;
+      color: #62625d;
+      margin-top: 30px;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 35px;
+    }
+
+    .tag {
+      padding: 9px 15px;
+      border: 1px solid var(--line);
+      border-radius: 50px;
+      font-size: 11px;
+      color: #555;
+    }
+
+    /* COVER VISUAL */
+
+    .cover {
+      min-height: 530px;
+      border-radius: 5px;
+      background: #d9f5b4;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 100px;
+    }
+
+    .cover-text {
+      position: absolute;
+      top: 45px;
+      left: 50px;
+      z-index: 2;
+    }
+
+    .cover-text p {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .cover-text h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(35px, 5vw, 62px);
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-top: 14px;
+    }
+
+    .cover-circle {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: #b5ed79;
+      right: -30px;
+      bottom: -160px;
+    }
+
+    .phone {
+      width: 270px;
+      height: 525px;
+      background: #171717;
+      border-radius: 42px;
+      padding: 12px;
+      position: relative;
+      z-index: 3;
+      box-shadow: 0 35px 80px rgba(0,0,0,0.22);
+      transform: rotate(-5deg);
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #f8f8f7;
+      border-radius: 32px;
+      overflow: hidden;
+      padding: 28px 15px;
+    }
+
+    .phone-top {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    .chat-label {
+      font-size: 10px;
+      color: #929292;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .bubble {
+      max-width: 90%;
+      padding: 12px;
+      border-radius: 15px;
+      font-size: 11px;
+      line-height: 1.5;
+      margin-bottom: 13px;
+    }
+
+    .bubble.bot {
+      background: #ecece8;
+      border-radius: 15px 15px 15px 4px;
+    }
+
+    .bubble.user {
+      background: #d7f5a9;
+      margin-left: auto;
+      border-radius: 15px 15px 4px 15px;
+    }
+
+    .bubble.money {
+      background: white;
+      border: 1px solid #e4e4e0;
+      font-size: 13px;
+      padding: 15px;
+    }
+
+    .bubble.money strong {
+      display: block;
+      font-size: 20px;
+      margin: 5px 0;
+    }
+
+    .phone-bottom {
+      font-size: 10px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* PROJECT OVERVIEW */
+
+    section {
+      margin-bottom: 115px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 80px;
+    }
+
+    .overview h2,
+    .section-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(32px, 4vw, 55px);
+      letter-spacing: -2.5px;
+      line-height: 1.1;
+      font-weight: 600;
+    }
+
+    .overview-text {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.9;
+      margin-top: 25px;
+    }
+
+    .details {
+      border-top: 1px solid var(--line);
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .detail-row span:first-child {
+      color: var(--muted);
+    }
+
+    /* CHALLENGE */
+
+    .challenge {
+      background: var(--dark);
+      color: white;
+      padding: 85px 9%;
+      border-radius: 5px;
+    }
+
+    .challenge .section-label {
+      color: #a5b2a7;
+    }
+
+    .challenge h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(36px, 5vw, 65px);
+      letter-spacing: -3px;
+      line-height: 1.15;
+      max-width: 900px;
+    }
+
+    .challenge h2 span {
+      color: var(--green);
+    }
+
+    .challenge-description {
+      color: #c4ccc6;
+      max-width: 600px;
+      margin-top: 28px;
+      line-height: 1.9;
+    }
+
+    /* OPPORTUNITY */
+
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 40px;
+    }
+
+    .opportunity-card {
+      padding: 35px;
+      background: #ededE8;
+      border-radius: 5px;
+    }
+
+    .opportunity-card h3 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 23px;
+      letter-spacing: -1px;
+      margin-bottom: 15px;
+    }
+
+    .opportunity-card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* PROCESS */
+
+    .process-list {
+      margin-top: 45px;
+      border-top: 1px solid var(--line);
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 70px 1fr 1.3fr;
+      gap: 25px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+
+    .process-number {
+      color: #8a8a84;
+      font-size: 12px;
+    }
+
+    .process-item h3 {
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .process-item p {
+      color: #70706b;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* SOLUTION */
+
+    .solution {
+      background: #e8f4d9;
+      padding: 80px 9%;
+      border-radius: 5px;
+    }
+
+    .solution-intro {
+      max-width: 750px;
+      font-size: 16px;
+      color: #525b48;
+      line-height: 1.9;
+      margin-top: 25px;
+    }
+
+    .solution-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 55px;
+    }
+
+    .feature {
+      padding-top: 20px;
+      border-top: 1px solid #b8c9a5;
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #626b58;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* IMAGE PLACEHOLDERS */
+
+    .visual-block {
+      margin-top: 45px;
+    }
+
+    .visual-placeholder {
+      min-height: 380px;
+      background: #e8e8e2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 5px;
+      padding: 30px;
+    }
+
+    .visual-placeholder p {
+      color: #777;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .visual-placeholder strong {
+      font-size: 14px;
+    }
+
+    .visual-placeholder .icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .visual-caption {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* IMPACT */
+
+    .impact {
+      background: #171717;
+      color: white;
+      padding: 75px 9%;
+      border-radius: 5px;
+    }
+
+    .impact h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(35px, 5vw, 60px);
+      letter-spacing: -3px;
+      line-height: 1.1;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .impact-card {
+      padding-top: 25px;
+      border-top: 1px solid #464646;
+    }
+
+    .impact-card h3 {
+      font-size: 17px;
+      margin-bottom: 12px;
+      color: var(--green);
+    }
+
+    .impact-card p {
+      color: #c3c3c3;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* REFLECTION */
+
+    .reflection {
+      max-width: 800px;
+    }
+
+    .reflection p {
+      color: #686863;
+      font-size: 16px;
+      line-height: 1.9;
+      margin-top: 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0 45px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .container {
+        width: 90%;
+      }
+
+      nav {
+        padding: 20px 0;
+      }
+
+      .hero {
+        padding: 65px 0 45px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .cover {
+        min-height: 470px;
+        margin-bottom: 75px;
+      }
+
+      .cover-text {
+        top: 28px;
+        left: 25px;
+      }
+
+      .cover-circle {
+        width: 350px;
+        height: 350px;
+        right: -80px;
+        bottom: -110px;
+      }
+
+      .phone {
+        width: 225px;
+        height: 450px;
+        margin-top: 80px;
+      }
+
+      .overview,
+      .opportunity-grid,
+      .solution-features,
+      .impact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .overview {
+        gap: 40px;
+      }
+
+      section {
+        margin-bottom: 75px;
+      }
+
+      .challenge,
+      .solution,
+      .impact {
+        padding: 50px 25px;
+      }
+
+      .process-item {
+        grid-template-columns: 35px 1fr;
+        gap: 12px;
+      }
+
+      .process-item p {
+        grid-column: 2;
+      }
+
+      .visual-placeholder {
+        min-height: 260px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- NAVIGATION -->
+    <nav>
+      <a class="logo" href="../index.html">Carlos Lenes®</a>
+      <a class="nav-link" href="../index.html">← Volver al portafolio</a>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <p class="eyebrow">Product Design · Conversational AI · Fintech</p>
+
+      <h1>
+        Banking,<br>
+        <span>reimagined</span><br>
+        through conversation.
+      </h1>
+
+      <p class="hero-description">
+        Explorando una nueva forma de interactuar con los servicios
+        financieros a través de experiencias conversacionales,
+        simples, accesibles y naturales.
+      </p>
+
+      <div class="hero-meta">
+        <span class="tag">Product Design</span>
+        <span class="tag">Generative AI</span>
+        <span class="tag">Conversational UX</span>
+        <span class="tag">Digital Banking</span>
+      </div>
+    </header>
+
+    <!-- COVER -->
+    <div class="cover">
+
+      <div class="cover-text">
+        <p>Digital banking · Conversational experience</p>
+        <h2>Banking<br>without friction.</h2>
+      </div>
+
+      <div class="cover-circle"></div>
+
+      <div class="phone">
+        <div class="phone-screen">
+
+          <div class="phone-top">Plin · Asistente</div>
+
+          <div class="chat-label">Hoy · 10:42 a. m.</div>
+
+          <div class="bubble bot">
+            ¡Hola! 👋 ¿Qué necesitas hacer hoy?
+          </div>
+
+          <div class="bubble user">
+            Quiero transferir dinero.
+          </div>
+
+          <div class="bubble bot">
+            Claro. ¿A quién deseas enviar dinero?
+          </div>
+
+          <div class="bubble user">
+            A Andrea.
+          </div>
+
+          <div class="bubble bot money">
+            Revisa tu transferencia
+            <strong>S/ 50.00</strong>
+            Destinatario: Andrea
+          </div>
+
+          <div class="phone-bottom">
+            Conversar · Resolver · Confirmar
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OVERVIEW -->
+    <section>
+      <p class="section-label">01 / Project overview</p>
+
+      <div class="overview">
+
+        <div>
+          <h2>Más que una transacción.<br>Una experiencia.</h2>
+
+          <p class="overview-text">
+            Plin representa una oportunidad para evolucionar la interacción
+            con los servicios financieros, trasladando operaciones cotidianas
+            a un entorno conversacional donde las personas puedan resolver
+            necesidades de manera más intuitiva, directa y natural.
+          </p>
+        </div>
+
+        <div class="details">
+          <div class="detail-row">
+            <span>Proyecto</span>
+            <span>Conversational Banking</span>
+          </div>
+
+          <div class="detail-row">
+            <span>Rol</span>
+            <span>Product Designer</span>
+          </div>
+
+          <div class="detail-row">
+            <span>Disciplina</span>
+            <span>Product Design · UX · AI</span>
+          </div>
+
+          <div class="detail-row">
+            <span>Enfoque</span>
+            <span>Experiencia conversacional</span>
+          </div>
+
+          <div class="detail-row">
+            <span>Canal</span>
+            <span>WhatsApp / Conversational interface</span>
+          </div>
+
+          <div class="detail-row">
+            <span>Scope</span>
+            <span>Discovery · Experience Design · Interaction</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CHALLENGE -->
+    <section class="challenge">
+
+      <p class="section-label">02 / The challenge</p>
+
+      <h2>
+        ¿Cómo simplificar las operaciones financieras
+        y acercar la banca a las personas
+        a través de una experiencia
+        <span>más natural?</span>
+      </h2>
+
+      <p class="challenge-description">
+        Las experiencias bancarias digitales han evolucionado,
+        pero muchas interacciones continúan dependiendo de navegar
+        entre menús, encontrar funcionalidades y completar múltiples pasos.
+        El desafío era explorar un modelo de interacción que redujera
+        esa fricción y permitiera resolver necesidades financieras
+        desde una conversación.
+      </p>
+
+    </section>
+
+    <!-- OPPORTUNITY -->
+    <section>
+
+      <p class="section-label">03 / The opportunity</p>
+
+      <h2 class="section-title">
+        La conversación como<br>
+        una nueva interfaz.
+      </h2>
+
+      <div class="opportunity-grid">
+
+        <div class="opportunity-card">
+          <h3>From navigation to conversation</h3>
+
+          <p>
+            Pasar de buscar funcionalidades dentro de una aplicación
+            a expresar directamente lo que el usuario necesita,
+            utilizando un lenguaje cotidiano.
+          </p>
+        </div>
+
+        <div class="opportunity-card">
+          <h3>From steps to simplicity</h3>
+
+          <p>
+            Reducir la complejidad percibida de las operaciones financieras
+            mediante interacciones guiadas, contextualizadas y fáciles de comprender.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PROCESS -->
+    <section>
+
+      <p class="section-label">04 / Design approach</p>
+
+      <h2 class="section-title">
+        De la necesidad<br>
+        a la experiencia.
+      </h2>
+
+      <div class="process-list">
+
+        <div class="process-item">
+          <span class="process-number">01</span>
+          <h3>Discovery</h3>
+          <p>
+            Comprensión del contexto, las necesidades del usuario
+            y las oportunidades de simplificación de las operaciones financieras.
+          </p>
+        </div>
+
+        <div class="process-item">
+          <span class="process-number">02</span>
+          <h3>Experience strategy</h3>
+          <p>
+            Definición del modelo conversacional, los casos de uso prioritarios
+            y los principios de interacción para una experiencia confiable.
+          </p>
+        </div>
+
+        <div class="process-item">
+          <span class="process-number">03</span>
+          <h3>Interaction design</h3>
+          <p>
+            Diseño de flujos, respuestas, estados, confirmaciones
+            y escenarios de interacción considerando las necesidades
+            del usuario y la naturaleza de las operaciones financieras.
+          </p>
+        </div>
+
+        <div class="process-item">
+          <span class="process-number">04</span>
+          <h3>Validation</h3>
+          <p>
+            Evaluación de la claridad de la conversación,
+            la comprensión de las acciones y la confianza
+            durante la ejecución de las operaciones.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="solution">
+
+      <p class="section-label">05 / The solution</p>
+
+      <h2 class="section-title">
+        Banking that<br>
+        speaks your language.
+      </h2>
+
+      <p class="solution-intro">
+        Una experiencia conversacional que permite realizar operaciones
+        financieras mediante lenguaje natural, acompañando al usuario
+        desde la intención inicial hasta la confirmación de su operación.
+        La conversación deja de ser un canal de consulta para convertirse
+        en una forma de resolver.
+      </p>
+
+      <div class="solution-features">
+
+        <div class="feature">
+          <h3>01. Transfers</h3>
+          <p>
+            Transferir dinero mediante instrucciones simples,
+            identificando destinatario y monto.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>02. Payments</h3>
+          <p>
+            Facilitar el pago de servicios y tarjeta de crédito
+            a través de una interacción guiada.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>03. Conversational guidance</h3>
+          <p>
+            Acompañar al usuario, resolver dudas y proporcionar
+            claridad antes de confirmar una operación.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- VISUAL 1 -->
+    <section class="visual-block">
+
+      <p class="section-label">06 / The experience</p>
+
+      <div class="visual-placeholder">
+        <div class="icon">＋</div>
+        <strong>Conversational experience</strong>
+        <p>
+          Aquí incorporaremos tu primera imagen o mockup real de Plin.
+        </p>
+        <p>Archivo sugerido: plin/images/plin-cover.jpg</p>
+      </div>
+
+      <p class="visual-caption">
+        Conversational banking · Concepto de experiencia
+      </p>
+
+    </section>
+
+    <!-- VISUAL 2 -->
+    <section class="visual-block">
+
+      <div class="visual-placeholder">
+        <div class="icon">＋</div>
+        <strong>User flow & interaction</strong>
+        <p>
+          Aquí incorporaremos el flujo de conversación,
+          pantallas y decisiones de interacción.
+        </p>
+        <p>Archivo sugerido: plin/images/plin-flow.jpg</p>
+      </div>
+
+      <p class="visual-caption">
+        Interaction design · Conversational flow
+      </p>
+
+    </section>
+
+    <!-- IMPACT -->
+    <section class="impact">
+
+      <p class="section-label">07 / Business & user value</p>
+
+      <h2>
+        Diseñar para simplificar.<br>
+        Innovar para generar valor.
+      </h2>
+
+      <div class="impact-grid">
+
+        <div class="impact-card">
+          <h3>User experience</h3>
+          <p>
+            Reducir fricciones en operaciones cotidianas,
+            facilitar el acceso a servicios financieros
+            y generar interacciones más intuitivas.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <h3>Business opportunity</h3>
+          <p>
+            Explorar nuevos puntos de contacto digitales,
+            impulsar el uso de servicios financieros
+            y fortalecer la relación con los usuarios.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <h3>Digital adoption</h3>
+          <p>
+            Acercar las operaciones financieras a un canal familiar,
+            disminuyendo barreras de interacción
+            y facilitando el uso de los servicios.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <h3>Future of banking</h3>
+          <p>
+            Explorar el potencial de la inteligencia artificial
+            y las interfaces conversacionales para redefinir
+            la experiencia de la banca digital.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- REFLECTION -->
+    <section class="reflection">
+
+      <p class="section-label">08 / Reflection</p>
+
+      <h2 class="section-title">
+        La innovación no siempre
+        significa crear algo nuevo.
+        A veces significa hacer
+        que lo complejo se sienta simple.
+      </h2>
+
+      <p>
+        Diseñar experiencias conversacionales en servicios financieros
+        implica encontrar el equilibrio entre simplicidad, confianza,
+        control y utilidad. El verdadero reto no está en hacer que
+        una tecnología converse, sino en lograr que las personas
+        puedan resolver algo importante de manera intuitiva y segura.
+      </p>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>© Carlos Lenes · Product Design</span>
+      <a href="../index.html">Volver al portafolio ↑</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>
+
