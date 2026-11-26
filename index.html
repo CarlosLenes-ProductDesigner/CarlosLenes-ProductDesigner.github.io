@@ -2,103 +2,601 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Carlos Lenes — Senior Product Designer. Diseño de productos digitales, inteligencia artificial y experiencias de servicio.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Carlos Lenes — Senior Product Designer especializado en AI, Product Design y Service Design.">
+<title>Carlos Lenes — Product Designer</title>
 
-  <title>Carlos Lenes — Senior Product Designer</title>
+<style>
+:root {
+  --bg: #f4f3ef;
+  --text: #191919;
+  --muted: #77766f;
+  --line: #d8d6cf;
+  --accent: #d5ff36;
+}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+html { scroll-behavior: smooth; }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f4f0;
-      color: #191919;
-      line-height: 1.5;
-    }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+a { color: inherit; text-decoration: none; }
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 7%;
-    }
+.container {
+  width: 86%;
+  max-width: 1250px;
+  margin: auto;
+}
 
-    header {
-      padding: 28px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #d5d3cd;
-    }
+header {
+  height: 85px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
 
-    .logo {
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
+.logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
 
-    nav {
-      display: flex;
-      gap: 25px;
-      font-size: 12px;
-    }
+nav {
+  display: flex;
+  gap: 28px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-    nav a:hover {
-      opacity: .5;
-    }
+nav a:hover, .text-link:hover {
+  opacity: .5;
+}
 
-    .hero {
-      padding: 125px 0 110px;
-    }
+.hero {
+  padding: 135px 0 100px;
+}
 
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #777;
-      margin-bottom: 28px;
-    }
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
 
-    h1 {
-      font-size: clamp(52px, 9vw, 112px);
-      line-height: .94;
-      letter-spacing: -7px;
-      font-weight: 700;
-      max-width: 1000px;
-    }
+h1 {
+  font-size: clamp(58px, 9.5vw, 125px);
+  line-height: .91;
+  letter-spacing: -.085em;
+  font-weight: 700;
+}
 
-    h1 span {
-      color: #a2a19b;
-    }
+h1 span { color: #aaa9a2; }
 
-    .hero-description {
-      max-width: 540px;
-      margin-top: 38px;
-      font-size: 18px;
-      color: #555;
-    }
+.hero-description {
+  max-width: 570px;
+  margin-top: 42px;
+  font-size: 19px;
+  color: #55544f;
+  line-height: 1.65;
+}
 
-    .hero-bottom {
-      margin-top: 65px;
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 20px;
-    }
+.hero-bottom {
+  margin-top: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+}
 
-    .button {
-      display: inline-block
+.availability {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.availability::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #8cae35;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+
+.text-link {
+  font-size: 13px;
+  border-bottom: 1px solid var(--text);
+  padding-bottom: 5px;
+}
+
+.section {
+  padding: 95px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 55px;
+}
+
+.section-number {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: clamp(34px, 5vw, 64px);
+  letter-spacing: -.055em;
+  line-height: 1;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.intro-text {
+  font-size: 19px;
+  line-height: 1.7;
+  color: #55544f;
+}
+
+.intro-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.detail h3 {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.detail p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px 25px;
+}
+
+.project {
+  display: block;
+}
+
+.project-visual {
+  min-height: 300px;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform .3s;
+  overflow: hidden;
+}
+
+.project:hover .project-visual {
+  transform: translateY(-5px);
+}
+
+.visual-ai {
+  background: #deded7;
+  color: #191919;
+}
+
+.visual-banking {
+  background: #d8e4ed;
+  color: #172c40;
+}
+
+.visual-hr {
+  background: #e7d8cd;
+  color: #553a30;
+}
+
+.visual-health {
+  background: #dce5d4;
+  color: #263d2b;
+}
+
+.visual-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.visual-title {
+  font-size: clamp(32px, 4vw, 58px);
+  font-weight: 700;
+  letter-spacing: -.06em;
+  line-height: 1;
+  max-width: 350px;
+}
+
+.project-info {
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 15px;
+}
+
+.project-info h3 {
+  font-size: 20px;
+  letter-spacing: -.5px;
+}
+
+.project-info p {
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.project-arrow {
+  font-size: 24px;
+}
+
+.experience-list {
+  border-top: 1px solid var(--line);
+}
+
+.experience-item {
+  padding: 25px 0;
+  display: grid;
+  grid-template-columns: 150px 1fr 180px;
+  gap: 25px;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+
+.experience-item .date,
+.experience-item .company {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.experience-item h3 {
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+.experience-item p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.skill {
+  border-top: 1px solid var(--text);
+  padding-top: 20px;
+}
+
+.skill h3 {
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+
+.skill p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.contact {
+  padding: 120px 0;
+  background: #1b1b1b;
+  color: white;
+}
+
+.contact h2 {
+  font-size: clamp(48px, 8vw, 100px);
+  max-width: 850px;
+}
+
+.contact p {
+  color: #aaa;
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+.contact a {
+  display: inline-block;
+  margin-top: 40px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid white;
+  font-size: 15px;
+}
+
+footer {
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+@media(max-width: 700px) {
+  .container { width: 88%; }
+  header { height: auto; padding: 23px 0; }
+  nav { gap: 13px; font-size: 9px; }
+  .hero { padding: 95px 0 75px; }
+  h1 { letter-spacing: -.07em; }
+  .hero-description { font-size: 16px; }
+  .hero-bottom { align-items: start; flex-direction: column; }
+  .section { padding: 70px 0; }
+  .intro-grid { grid-template-columns: 1fr; gap: 35px; }
+  .projects { grid-template-columns: 1fr; gap: 35px; }
+  .project-visual { min-height: 250px; }
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .skills-grid { grid-template-columns: 1fr; }
+  .contact { padding: 85px 0; }
+  footer { gap: 15px; flex-wrap: wrap; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <a href="#" class="logo">CL. / DESIGN</a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <p class="eyebrow">Senior Product Designer · Lima, Perú</p>
+
+  <h1>
+    Designing<br>
+    meaningful<br>
+    <span>experiences.</span>
+  </h1>
+
+  <p class="hero-description">
+    Transformo problemas complejos en productos y servicios
+    digitales que conectan las necesidades de las personas
+    con los objetivos del negocio.
+  </p>
+
+  <div class="hero-bottom">
+    <p class="availability">Open to new opportunities</p>
+    <a href="#work" class="text-link">Explorar proyectos ↓</a>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-header">
+    <h2>About me.</h2>
+    <span class="section-number">01 / PROFILE</span>
+  </div>
+
+  <div class="intro-grid">
+    <p class="intro-text">
+      Soy Product Designer con experiencia en diseño de
+      experiencias digitales, innovación y resolución de
+      problemas de negocio. Mi enfoque combina pensamiento
+      estratégico, diseño centrado en las personas y tecnología
+      para crear soluciones relevantes y escalables.
+      <br><br>
+      Me interesa especialmente explorar cómo la inteligencia
+      artificial transforma la relación entre las personas,
+      los productos y los servicios.
+    </p>
+
+    <div class="intro-details">
+      <div class="detail">
+        <h3>Focus</h3>
+        <p>Product Design<br>AI Experiences<br>Service Design<br>Business Design</p>
+      </div>
+      <div class="detail">
+        <h3>Approach</h3>
+        <p>Design Strategy<br>Systems Thinking<br>Human-centered Design<br>Data-informed Design</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="section-header">
+    <h2>Selected work.</h2>
+    <span class="section-number">02 / PROJECTS</span>
+  </div>
+
+  <div class="projects">
+
+    <a href="#contact" class="project">
+      <div class="project-visual visual-ai">
+        <span class="visual-label">01 / Conversational AI</span>
+        <span class="visual-title">Banking<br>reimagined.</span>
+        <span class="visual-label">AI · DIGITAL BANKING · UX</span>
+      </div>
+      <div class="project-info">
+        <div>
+          <h3>Conversational AI Banking</h3>
+          <p>Experiencias conversacionales para operaciones financieras.</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </a>
+
+    <a href="#contact" class="project">
+      <div class="project-visual visual-banking">
+        <span class="visual-label">02 / Generative AI</span>
+        <span class="visual-title">Knowledge<br>made accessible.</span>
+        <span class="visual-label">SGS · AI · INFORMATION DESIGN</span>
+      </div>
+      <div class="project-info">
+        <div>
+          <h3>Abigail — AI Assistant</h3>
+          <p>Acceso a información certificada mediante IA generativa.</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </a>
+
+    <a href="#contact" class="project">
+      <div class="project-visual visual-hr">
+        <span class="visual-label">03 / AI for HR</span>
+        <span class="visual-title">Human<br>resources,<br>reimagined.</span>
+        <span class="visual-label">AI · HR · SELF SERVICE</span>
+      </div>
+      <div class="project-info">
+        <div>
+          <h3>Lucy — AI for HR</h3>
+          <p>Autoservicio y optimización de procesos internos.</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </a>
+
+    <a href="#contact" class="project">
+      <div class="project-visual visual-health">
+        <span class="visual-label">04 / Service Design</span>
+        <span class="visual-title">Healthcare<br>without<br>the wait.</span>
+        <span class="visual-label">HEALTHCARE · SERVICE DESIGN</span>
+      </div>
+      <div class="project-info">
+        <div>
+          <h3>Healthcare Experience</h3>
+          <p>Concepto de servicio para recuperar citas médicas liberadas.</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="section-header">
+    <h2>Experience.</h2>
+    <span class="section-number">03 / CAREER</span>
+  </div>
+
+  <div class="experience-list">
+
+    <div class="experience-item">
+      <span class="date">Actualizar fechas</span>
+      <div>
+        <h3>Senior Product Designer</h3>
+        <p>Diseño de productos digitales, experiencias e innovación.</p>
+      </div>
+      <span class="company">Experiencia profesional</span>
+    </div>
+
+    <div class="experience-item">
+      <span class="date">Experiencia previa</span>
+      <div>
+        <h3>Product Designer / UX Designer</h3>
+        <p>Diseño de soluciones digitales y experiencias centradas en usuarios.</p>
+      </div>
+      <span class="company">Experiencia profesional</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2>Expertise.</h2>
+    <span class="section-number">04 / CAPABILITIES</span>
+  </div>
+
+  <div class="skills-grid">
+
+    <div class="skill">
+      <h3>Product Design</h3>
+      <p>
+        Product Strategy<br>
+        UX Research<br>
+        Interaction Design<br>
+        Design Systems<br>
+        Prototyping
+      </p>
+    </div>
+
+    <div class="skill">
+      <h3>Artificial Intelligence</h3>
+      <p>
+        Generative AI<br>
+        Conversational Design<br>
+        Chatbots<br>
+        AI-powered Experiences<br>
+        Human-AI Interaction
+      </p>
+    </div>
+
+    <div class="skill">
+      <h3>Service & Business</h3>
+      <p>
+        Service Design<br>
+        Customer Journey Mapping<br>
+        Systems Thinking<br>
+        Business Design<br>
+        Design Strategy
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="eyebrow">05 / LET'S CONNECT</p>
+    <h2>Let's create something meaningful.</h2>
+    <p>¿Tienes un proyecto o una oportunidad interesante?</p>
+    <a href="mailto:TU_CORREO@EJEMPLO.COM">Hablemos ↗</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="container">
+  <span>© 2026 Carlos Lenes</span>
+  <span>Product Design · AI · Service Design</span>
+  <a href="#top">Back to top ↑</a>
+</footer>
+
+</div>
+
+</body>
+</html>
